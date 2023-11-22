@@ -7,10 +7,12 @@ An amazing os written mainly in c!
 
 # To-Do
 
-• code the bootloader
+• ~~code the bootloader~~
 
 • code the kernel
 
 • code all the drivers
 
 • code a programming language called .s
+
+• code a gui
