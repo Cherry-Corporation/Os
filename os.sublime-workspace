@@ -1,0 +1,211 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/andrea/Documents/Os"
+	],
+	"file_history":
+	[
+		"/home/andrea/Documents/Os/Src/build.sh",
+		"/home/andrea/Documents/OsTests/bootloader.asm",
+		"/home/andrea/Documents/OsTests/build.sh",
+		"/home/andrea/Documents/OsTests/kernel.c",
+		"/home/andrea/Documents/OsTests/main.asm",
+		"/home/andrea/Documents/StarKernel/kernel/main.c",
+		"/home/andrea/Documents/StarKernel/kernel/StarLang/shell.c",
+		"/home/andrea/Documents/StarKernel/kernel/filesystem/filesystem.c",
+		"/home/andrea/Documents/StarKernel/kernel/dictionary/dictionary.c",
+		"/home/andrea/Documents/TestsOs/src/build.sh",
+		"/home/andrea/Documents/TestsOs/src/linker.ld",
+		"/home/andrea/Documents/TestsOs/src/kernel.c",
+		"/home/andrea/Documents/TestsOs/src/boot.asm",
+		"/home/andrea/Documents/Os/src/boot/boot.asm",
+		"/home/andrea/Documents/Os/src/linker.ld",
+		"/home/andrea/Documents/Os/src/kernel/kernel.c",
+		"/home/andrea/Documents/Os/build.sh",
+		"/home/andrea/Documents/OpenOS/src/kernel/screen.c",
+		"/home/andrea/Documents/OpenOS/src/kernel/kernel.c",
+		"/home/andrea/Documents/OpenOS/src/boot/boot.asm",
+		"/home/andrea/Documents/OpenOS/src/kernel/gdt.asm",
+		"/home/andrea/Documents/Os/src/boot/grub/grub.cfg",
+		"/home/andrea/Downloads/IKnowOS/build.sh",
+		"/home/andrea/Downloads/IKnowOS/kernel.asm",
+		"/home/andrea/Documents/Os/src/kernel.asm",
+		"/home/andrea/Documents/Os/src/bootloader.asm",
+		"/home/andrea/Documents/Os/src/main.asm",
+		"/home/andrea/Documents/Xalia_1/build.sh",
+		"/home/andrea/Desktop/mindmap/main.py",
+		"/home/andrea/Desktop/pyinfofetch/pyinfofetch.py",
+		"/home/andrea/Documents/Silk-Avenue/silkavenue/silkavenue/src/app/up-files/up-files.component.html",
+		"/home/andrea/Documents/Silk-Avenue/silkavenue/silkavenue/src/app/login/login.component.html",
+		"/home/andrea/Documents/Silk-Avenue/silkavenue/silkavenue/src/app/app.component.html",
+		"/home/andrea/Documents/Silk-Avenue/silkavenue/silkavenue/src/app/app.component.css",
+		"/home/andrea/Documents/Silk-Avenue/silkavenue/src/App.js",
+		"/home/andrea/.config/sublime-text/Packages/User/react.sublime-build",
+		"/home/andrea/.config/sublime-merge/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 120.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/react.sublime-build",
+	"project": "os.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 295.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
