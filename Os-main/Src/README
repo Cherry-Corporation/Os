@@ -1,7 +1,0 @@
-To install required build dependencies:
-Run setup.sh
-chmod +x setup.sh && ./setup.sh
-
-To build th os:
-Run build.sh (Make sure it is marked as executable)
-chmod +x build.sh && ./build.sh
