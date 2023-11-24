@@ -1,9 +1,10 @@
 //kernel
 #include "libs/graphics.c"
+//#include "libs/kb.c"
 
 void kmain() {
     clear_screen();
-    
+
     // Set text color to white
     set_text_color(VGA_COLOR_WHITE);
 
@@ -31,4 +32,6 @@ void kmain() {
 
     set_text_color(VGA_COLOR_YELLOW);
     print_string("Yellow Text\n", VGA_COLOR_YELLOW);
+
+    readStr();
 }
