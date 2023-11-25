@@ -8,3 +8,4 @@ sudo apt install gcc-multilib
 sudo apt install nasm 
 #sudo apt install virtualbox
 sudo apt install qemu
+sudo apt install qemu-system-x86
