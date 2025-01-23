@@ -1,47 +1,54 @@
 #!/bin/bash
-set -e   Exit on error
+set -e  # Exit on error
 
 # Source files
 BOOTLOADER_SRC="bootloader.asm"
 KERNEL_SRC="kernel.c"
-GRAPHICS_SRC="libs/graphics.c"
+LIB_DIR="libs"
+LIB_FILES=$(find $LIB_DIR -name "*.c") # Dynamically find all .c files in libs
 
 # Output files
 BUILD_DIR="Build"
 BOOTLOADER_OBJ="$BUILD_DIR/bootloader.o"
 KERNEL_OBJ="$BUILD_DIR/kernel.o"
-GRAPHICS_OBJ="$BUILD_DIR/graphics.o"
 KERNEL_BIN="$BUILD_DIR/kernel.bin"
+ISO_FILE="$BUILD_DIR/OS.iso"
 
 # Compiler and linker flags
 NASM="nasm -f elf32"
-GCC="gcc -m32"
+GCC="gcc -m32 -ffreestanding -nostdlib -nostartfiles -fno-builtin"
 LD="ld -m elf_i386 -T link.ld"
 
 # Create Build directory if it doesn't exist
 mkdir -p $BUILD_DIR
 
 # Build bootloader
+echo "Compiling bootloader..."
 $NASM $BOOTLOADER_SRC -o $BOOTLOADER_OBJ
 
-# Build kernel and graphics library
+# Compile all C files in libs and kernel
+echo "Compiling kernel and libraries..."
+for FILE in $LIB_FILES; do
+    OBJ_FILE="$BUILD_DIR/$(basename ${FILE%.*}.o)"
+    $GCC -c $FILE -o $OBJ_FILE
+done
 $GCC -c $KERNEL_SRC -o $KERNEL_OBJ
-$GCC -c $GRAPHICS_SRC -o $GRAPHICS_OBJ
-gcc -m32 -c libs/kb.c -o Build/kb.o
-gcc -m32 -c libs/screen.c -o Build/screen.o
-gcc -m32 -c libs/util.c -o Build/util.o
-gcc -m32 -c libs/shift.c -o Build/shift.o
-gcc -m32 -c libs/string.c -o Build/string.o
-gcc -m32 -c libs/system.c -o Build/system.o
 
 # Linking
-$LD -o $KERNEL_BIN Build/bootloader.o Build/kernel.o Build/kb.o Build/screen.o Build/util.o Build/shift.o Build/string.o Build/system.o
+echo "Linking..."
+LD_FILES=$(find $BUILD_DIR -name "*.o" | tr '\n' ' ')
+$LD -o $KERNEL_BIN $LD_FILES
 
-# Clean up unnecessary object files
-rm $BOOTLOADER_OBJ $KERNEL_OBJ $GRAPHICS_OBJ
+# Clean up object files
+echo "Cleaning up object files..."
+find $BUILD_DIR -name "*.o" -delete
 
-# Build ISO (uncomment if needed)
-#grub-mkrescue -o $BUILD_DIR/OS.iso Grub/
+# Build ISO (if GRUB is set up)
+if [ -d "Grub" ]; then
+    echo "Building ISO..."
+    grub-mkrescue -o $ISO_FILE Grub/
+fi
 
 # Run in QEMU
+echo "Running kernel in QEMU..."
 qemu-system-x86_64 -kernel $KERNEL_BIN

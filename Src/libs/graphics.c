@@ -1,35 +1,10 @@
-#include <stdint.h>
+#include "graphics.h"
 
 // VGA text mode buffer
 volatile uint16_t* vga_buffer = (uint16_t*)0xB8000;
 int term_col = 0;
 int term_row = 0;
-uint8_t current_color = 15; // Default color is white
-
-// VGA color constants
-#define VGA_COLOR_BLACK         0
-#define VGA_COLOR_BLUE          1
-#define VGA_COLOR_GREEN         2
-#define VGA_COLOR_CYAN          3
-#define VGA_COLOR_RED           4
-#define VGA_COLOR_MAGENTA       5
-#define VGA_COLOR_BROWN         6
-#define VGA_COLOR_LIGHT_GRAY    7
-#define VGA_COLOR_DARK_GRAY     8
-#define VGA_COLOR_LIGHT_BLUE    9
-#define VGA_COLOR_LIGHT_GREEN   10
-#define VGA_COLOR_LIGHT_CYAN    11
-#define VGA_COLOR_LIGHT_RED     12
-#define VGA_COLOR_LIGHT_MAGENTA 13
-#define VGA_COLOR_YELLOW        14
-#define VGA_COLOR_WHITE         15
-
-// Function declarations
-void set_cell(char character, uint8_t color, int x, int y);
-void clear_screen();
-void set_text_color(uint8_t color);
-void print_char(char character, uint8_t color);
-void print_string(const char* str, uint8_t color);
+uint8_t current_color = VGA_COLOR_WHITE; // Default color is white
 
 void set_cell(char character, uint8_t color, int x, int y) {
     const int index = y * 80 + x;
@@ -54,9 +29,22 @@ void print_char(char character, uint8_t color) {
     if (character == '\n') {
         term_col = 0;
         term_row++;
+    } else if (character == '\b') {
+        // Backspace: move cursor left and clear the previous character
+        if (term_col > 0) {
+            term_col--;
+        } else if (term_row > 0) {
+            term_row--;
+            term_col = 79;  // Set to the last column of the previous row
+        }
+        // Clear the character at the current position
+        set_cell(' ', VGA_COLOR_BLACK, term_col, term_row);
     } else {
+        // Print the character at the current position
         set_cell(character, color, term_col, term_row);
         term_col++;
+
+        // Handle line wrapping
         if (term_col >= 80) {
             term_col = 0;
             term_row++;

@@ -1,37 +1,29 @@
-//kernel
-#include "libs/graphics.c"
-//#include "libs/kb.c"
+// kernel.c
+#include "libs/graphics.h"
+#include "libs/kb-driver.h"
+#include <stdlib.h> 
 
 void kmain() {
-    clear_screen();
 
-    // Set text color to white
+    clear_screen();
     set_text_color(VGA_COLOR_WHITE);
 
-    // Print welcome message
-    print_string("Welcome to the OS!\n", VGA_COLOR_WHITE);
 
-    // Change text color to green
+    print_string("Welcome to the OS!\n", VGA_COLOR_LIGHT_RED);
     set_text_color(VGA_COLOR_GREEN);
-
-    // Print a string in green
     print_string("Hello, User! Welcome!\n", VGA_COLOR_GREEN);
 
-    // Change text color to red
-    set_text_color(VGA_COLOR_RED);
+    set_text_color(VGA_COLOR_WHITE);
+    print_string("Please enter your name: ", VGA_COLOR_WHITE);
 
-    // Print another string in red
-    print_string("Red Text\n", VGA_COLOR_RED);
+    char* name = readStr();
 
-    // Additional colors
-    set_text_color(VGA_COLOR_LIGHT_BLUE);
-    print_string("Light Blue Text\n", VGA_COLOR_LIGHT_BLUE);
+    print_string("\n", VGA_COLOR_WHITE);
 
-    set_text_color(VGA_COLOR_LIGHT_MAGENTA);
-    print_string("Light Magenta Text\n", VGA_COLOR_LIGHT_MAGENTA);
+    set_text_color(VGA_COLOR_CYAN);
+    print_string("Hello, ", VGA_COLOR_CYAN);
+    print_string(name, VGA_COLOR_CYAN);
+    print_string("! Welcome to the OS!\n", VGA_COLOR_CYAN);
 
-    set_text_color(VGA_COLOR_YELLOW);
-    print_string("Yellow Text\n", VGA_COLOR_YELLOW);
 
-    readStr();
 }
